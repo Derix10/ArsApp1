@@ -48,28 +48,11 @@ public static final String KEY_2 = "bundle.key2", KEY3 = "bundle.key3";
             bundle.putString(KEY3, textView.getText().toString());
             bundle.putString(KEY_2, editText.getText().toString());
             fragment.setArguments(bundle);
-            editText.addTextChangedListener(new TextWatcher() {
-                @Override
-                public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                    if (editText.toString().length() <= 3){
-                        editText = null;
-                    }
-                }
 
-                @Override
-                public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-                }
-
-                @Override
-                public void afterTextChanged(Editable editText) {
-
-                }
-            });
             requireActivity().
                     getSupportFragmentManager().beginTransaction().replace(R.id.conteiner, fragment).addToBackStack(null).commit();
+
+
         });
-
-
     }
 }
